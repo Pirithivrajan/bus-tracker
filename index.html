@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bus Route Finder</title>
-    <link rel="stylesheet" href="style.css">
+<title>Bus Route Finder</title>
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>🚌 Select a Place to Find Buses</h2>
-
+<h2>🚌 Click on Map to Find Buses</h2>
 <div id="map"></div>
+
 <div id="busList">
-    <h3>Available Buses</h3>
-    <ul id="buses"></ul>
+<h3>Available Buses</h3>
+<ul id="buses"></ul>
 </div>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
-
-<script async
-src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAP_KEY&callback=initMap">
-</script>
 
 </body>
 </html>
