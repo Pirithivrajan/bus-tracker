@@ -1,54 +1,34 @@
-let map;
+var map = L.map('map').setView([13.0827, 80.2707], 12);
 
-const busRoutes = [
-    {
-        name: "Bus 21A",
-        lat: 13.0827,
-        lng: 80.2707,
-        places: ["Chennai", "T Nagar"]
-    },
-    {
-        name: "Bus 54B",
-        lat: 13.0604,
-        lng: 80.2496,
-        places: ["Guindy", "Velachery"]
-    },
-    {
-        name: "Bus 102",
-        lat: 13.0878,
-        lng: 80.2785,
-        places: ["Anna Nagar", "Central"]
-    }
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+const buses = [
+{ name:"21A", lat:13.082, lng:80.270 },
+{ name:"54B", lat:13.060, lng:80.249 },
+{ name:"102", lat:13.090, lng:80.280 }
 ];
 
-function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 13.0827, lng: 80.2707 },
-        zoom: 12,
-    });
+map.on('click', function(e){
+    showBuses(e.latlng.lat, e.latlng.lng);
+});
 
-    map.addListener("click", function (e) {
-        findBuses(e.latLng.lat(), e.latLng.lng());
-    });
+function showBuses(lat,lng){
+let list = document.getElementById("buses");
+list.innerHTML="";
+
+buses.forEach(bus=>{
+ let d = Math.sqrt(
+  Math.pow(bus.lat-lat,2)+Math.pow(bus.lng-lng,2)
+ );
+
+ if(d<0.05){
+   let li=document.createElement("li");
+   li.innerText="Bus "+bus.name;
+   list.appendChild(li);
+ }
+});
+
+if(list.innerHTML==""){
+ list.innerHTML="<li>No buses near this place</li>";
 }
-
-function findBuses(lat, lng) {
-    const list = document.getElementById("buses");
-    list.innerHTML = "";
-
-    busRoutes.forEach(bus => {
-        const distance = Math.sqrt(
-            Math.pow(bus.lat - lat, 2) + Math.pow(bus.lng - lng, 2)
-        );
-
-        if (distance < 0.05) {
-            let li = document.createElement("li");
-            li.innerText = bus.name;
-            list.appendChild(li);
-        }
-    });
-
-    if (list.innerHTML === "") {
-        list.innerHTML = "<li>No buses available for this area</li>";
-    }
 }
