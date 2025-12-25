@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bus Route Finder</title>
-
-<link rel="stylesheet"
-href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-
+<title>Bus Stop Finder</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>🚌 Click on Map to Find Buses</h2>
-<div id="map"></div>
+<h2>🚌 Bus Stop to Bus Finder</h2>
 
-<div id="busList">
+<input type="text" id="stopInput" placeholder="Enter Bus Stop Name">
+<button onclick="findBuses()">Find Buses</button>
+
+<div id="result">
 <h3>Available Buses</h3>
-<ul id="buses"></ul>
+<ul id="busList"></ul>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
