@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bus Stop Finder</title>
+<title>India Bus Finder</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>🚌 Bus Stop to Bus Finder</h2>
+<h2>🚌 India Bus Finder</h2>
 
-<input type="text" id="stopInput" placeholder="Enter Bus Stop Name">
-<button onclick="findBuses()">Find Buses</button>
+<input id="place" placeholder="Enter city or town">
+<input type="time" id="time">
+<button onclick="searchBuses()">Find Buses</button>
 
-<div id="result">
+<div id="map"></div>
+
+<div id="results">
 <h3>Available Buses</h3>
 <ul id="busList"></ul>
 </div>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
