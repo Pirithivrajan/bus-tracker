@@ -1,18 +1,18 @@
 body {
-    font-family: Arial;
-    text-align: center;
+font-family: Arial;
+text-align:center;
 }
 
 #map {
-    height: 400px;
-    width: 90%;
-    margin: auto;
+height:400px;
+width:95%;
+margin:auto;
 }
 
 #busList {
-    margin-top: 20px;
-    background: #f4f4f4;
-    padding: 15px;
-    width: 90%;
-    margin: auto;
+margin-top:20px;
+background:#f2f2f2;
+padding:15px;
+width:95%;
+margin:auto;
 }
